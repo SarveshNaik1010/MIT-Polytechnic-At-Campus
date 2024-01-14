@@ -10,7 +10,7 @@
     "routes": [
       {
         "src": "/(.*)(/)?",
-        "dest": "/your-entry-file"
+        "dest": "/"
       }
     ]
   }
