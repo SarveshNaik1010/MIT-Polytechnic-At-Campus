@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "./server.js",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "your-distribution-directory" }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)(/)?",
+        "dest": "/your-entry-file"
+      }
+    ]
+  }
