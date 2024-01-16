@@ -3,6 +3,7 @@ const eventModel = require('../model/eventModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const sharp = require('sharp');
+const path = require('../app');
 
 // const multerStorage = multer.diskStorage({
 //   destination: (req, file, cb) => {
@@ -52,7 +53,8 @@ exports.resizeImages = async (req, res, next) => {
     );
     req.body[imgType] = typeArr.length === 1 ? typeArr[0] : typeArr;
   }
-  next();
+  console.log(req.files);
+  // next();
 };
 
 exports.getAllEvents = catchAsync(async function (req, res, next) {
@@ -82,11 +84,17 @@ exports.getEvent = catchAsync(async function (req, res, next) {
 });
 
 exports.getCategoryList = catchAsync(async (req, res, next) => {
-  const list = (await eventModel.find({}, ['eventType', '-_id'])).map(li => li.eventType);
+  const list = (await eventModel.find({}, ['eventType', '-_id'])).map(
+    (li) => li.eventType
+  );
   res.status(200).json({
     status: 'success',
     list,
   });
+});
+
+exports.getImage = catchAsync(async (req, res, next) => {
+  res.sendFile(`../public/event/${req.url}`);
 });
 
 exports.postEvent = catchAsync(async function (req, res, next) {
