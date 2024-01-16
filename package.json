@@ -2,10 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "At campus events website for MIT Polytechnic",
-  "main": "index.js",
+  "main": "server.js",
   "engines": {
     "node": "18.x"
-
   },
   "scripts": {
     "start": "node server.js",
