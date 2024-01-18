@@ -54,7 +54,7 @@ exports.resizeImages = async (req, res, next) => {
     req.body[imgType] = typeArr.length === 1 ? typeArr[0] : typeArr;
   }
   console.log(req.files);
-  // next();
+  next();
 };
 
 exports.getAllEvents = catchAsync(async function (req, res, next) {
