@@ -7,6 +7,9 @@ const AppError = require('./utils/appError');
 
 const app = express();
 
+app.set('view engine', 'pug'); //No need to require
+app.set('views', path.join(__dirname, 'views'));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
@@ -23,6 +26,10 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+app.get('/demo', function(req, res, next) {
+  res.status(200).render('demo');
+})
 
 app.use('/api/v1/events', eventRouter);
 

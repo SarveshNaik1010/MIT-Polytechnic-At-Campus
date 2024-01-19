@@ -4,19 +4,19 @@ const eventSchema = new mongoose.Schema({
   // Basic information
   eventName: {
     type: String,
-    required: [true, 'An event must have a name'],
+    // required: [true, 'An event must have a name'],
   },
   eventType: {
     type: String,
-    required: [true, 'An event must have a type'],
+    // required: [true, 'An event must have a type'],
   },
   eventDate: {
     type: Date,
-    required: [true, 'There must be a date associated with the event'],
+    // required: [true, 'There must be a date associated with the event'],
   },
   eventVenue: {
     type: String,
-    required: [true, 'An event must have a guest'],
+    // required: [true, 'An event must have a guest'],
   },
   eventPoster: {
     type: String,
@@ -26,11 +26,11 @@ const eventSchema = new mongoose.Schema({
   //Event Description
   eventDescText: {
     type: String,
-    required: [true, 'An event must have some description'],
+    // required: [true, 'An event must have some description'],
   },
   eventDescImg: {
     type: String,
-    required: [true, 'An event must have a description image'],
+    // required: [true, 'An event must have a description image'],
   },
 
   //Event Agenda
@@ -51,7 +51,7 @@ const eventSchema = new mongoose.Schema({
   eventImages: [
     {
       type: String,
-      required: [true, 'An event must have images'],
+      // required: [true, 'An event must have images'],
     },
   ],
 
