@@ -27,9 +27,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/demo', function(req, res, next) {
-  res.status(200).render('demo');
-})
+// app.get('/demo', function(req, res, next) {
+//   res.status(200).render('demo');
+// })
 
 app.use('/api/v1/events', eventRouter);
 

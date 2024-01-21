@@ -14,6 +14,8 @@ router
 
 router.route('/categories').get(eventController.getCategoryList);
 
+router.route('/category/:eventType').get(eventController.getEventsByCategory)
+
 router
   .route('/:eventName')
   .get(eventController.getEvent)

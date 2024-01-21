@@ -93,6 +93,15 @@ exports.getCategoryList = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getEventsByCategory = catchAsync(async (req, res, next) => {
+  console.log(req.params);
+  const events = await eventModel.find(req.params);
+  res.status(200).json({
+    status: 'success',
+    events,
+  });
+});
+
 exports.getImage = catchAsync(async (req, res, next) => {
   res.sendFile(`../public/event/${req.url}`);
 });

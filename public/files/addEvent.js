@@ -60,5 +60,4 @@ btnSubmit.addEventListener('click', async function (e) {
     url: '/api/v1/events',
     data: formData,
   });
-  console.log(upload);
 });
