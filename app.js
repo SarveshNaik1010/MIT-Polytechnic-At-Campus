@@ -11,7 +11,10 @@ const app = express();
 app.set('view engine', 'pug'); //No need to require
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(cors());
+app.use((req, res, next) => {
+  cors();
+  next();
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 
