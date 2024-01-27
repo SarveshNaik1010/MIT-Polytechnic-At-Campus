@@ -11,10 +11,7 @@ const app = express();
 app.set('view engine', 'pug'); //No need to require
 app.set('views', path.join(__dirname, 'views'));
 
-app.use((req, res, next) => {
-  cors();
-  next();
-});
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -27,6 +24,7 @@ app.use(express.json());
 app.use('/api/v1/events', eventRouter);
 
 app.get('/api/v1/eventimgs/:img', async function (req, res, next) {
+  console.log(req.headers);
   const imgPath = path.join(__dirname, '/public/event', req.params.img);
   res.sendFile(imgPath, (err) => {
     if (err) next(new AppError(400, 'Invalid image URL'));
