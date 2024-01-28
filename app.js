@@ -1,15 +1,12 @@
 const path = require('path');
 const express = require('express');
+const cors = require('cors');
 const eventRouter = require('./router/eventRouter');
 const imgRouter = require('./router/imgRouter');
 const errorController = require('./controller/errorController');
 const AppError = require('./utils/appError');
-const cors = require('cors');
 
 const app = express();
-
-app.set('view engine', 'pug'); //No need to require
-app.set('views', path.join(__dirname, 'views'));
 
 app.use(cors());
 
