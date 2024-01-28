@@ -13,8 +13,6 @@ app.use(cors());
 // Increase the payload size limit (e.g., 10MB)
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.json());
-
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 
@@ -29,6 +27,10 @@ app.get('/api/v1/eventimgs/:img', async function (req, res, next) {
   res.sendFile(imgPath, (err) => {
     if (err) next(new AppError(400, 'Invalid image URL'));
   });
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
 });
 
 app.use(errorController.handleError);
