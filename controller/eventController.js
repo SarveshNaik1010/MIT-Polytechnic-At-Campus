@@ -38,6 +38,7 @@ exports.uploadEventImgs = upload.fields([
 ]);
 
 exports.resizeImages = async (req, res, next) => {
+  console.log("🍔🍔");
   if (!req.files) return next();
   for (let imgType in req.files) {
     const typeArr = [];
@@ -107,6 +108,7 @@ exports.getImage = catchAsync(async (req, res, next) => {
 });
 
 exports.postEvent = catchAsync(async function (req, res, next) {
+  console.log(req.body);
   const event = await eventModel.create(req.body);
   res.status(200).json({
     status: 'Success',
