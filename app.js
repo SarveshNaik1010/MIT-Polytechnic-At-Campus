@@ -10,6 +10,10 @@ const app = express();
 
 app.use(cors());
 
+// Increase the payload size limit (e.g., 10MB)
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
