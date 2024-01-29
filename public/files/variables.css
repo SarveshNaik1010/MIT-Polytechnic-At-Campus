@@ -1,0 +1,17 @@
+:root {
+  --light-bg-color: #ffecbc;
+  --light-blue-bg-color: #4e47b1;
+  --dark-blue-bg-color: rgb(0, 73, 209);
+  --pink-color: #fc3ba5;
+  --ocenblue-bg-color: #5fc3e4;
+  --blue-border: #4e47b1;
+  --dark-text-color: #1f1f1f;
+  --grey-text-color: #555555;
+  --light-text-color: #fff;
+  --event-card-bg: #9bde87;
+  --button-submit: #41ff07;
+  --dark-button-submit: #2dc200;
+  --hero-div-gradient: linear-gradient(to bottom right, #fc3ba5, #264ed3);
+  --vision-gradient: linear-gradient(to bottom right, #5fc3e4, #67d4ff);
+  --mission-gradient: linear-gradient(to bottom right, #ffb03a, #ffa83e);
+}

@@ -13,12 +13,15 @@ app.use(cors());
 // Increase the payload size limit (e.g., 10MB)
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.set('view engine', 'pug'); //No need to require
+app.set('views', path.join(__dirname, 'views'));
+
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 
-// app.get('/demo', function(req, res, next) {
-//   res.status(200).render('demo');
-// })
+app.get('/upload-event', function(req, res, next) {
+  res.status(200).render('uploadEvent');
+})
 
 app.use('/api/v1/events', eventRouter);
 

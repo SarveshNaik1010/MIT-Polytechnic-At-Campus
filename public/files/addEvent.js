@@ -1,14 +1,14 @@
 'use strict';
 
-// const password = prompt("Enter Admin Password");
+const password = prompt('Enter Admin Password');
 const addEventPage = document.querySelector('.addEventPage');
 
 addEventPage.style.display = 'block';
 
-// if (password === "SOMEPASSWORD") {
-// } else {
-//   alert("Incorrect Password");
-// }
+if (password != "SOMEPASSWORD") {
+  alert("Incorrect Password");
+  window.location = window.location;
+}
 
 // Agenda
 const divAgenda = document.querySelector('.div--add-agenda');
@@ -50,14 +50,50 @@ const textArea = document.querySelector('.eventDesc');
 
 btnSubmit.addEventListener('click', async function (e) {
   e.preventDefault();
+
+  btnSubmit.textContent = `Submitting...`;
+
   const formData = new FormData(uploadForm);
-  // for (let i = 0; i < inputs.length; i++) {
-  //   console.log(formData.get(inputs[i].name));
-  // }
-  console.log('clicked');
-  const upload = await axios({
-    method: 'POST',
-    url: '/api/v1/events',
-    data: formData,
-  });
+  // Getting agendas into an array
+  const agendaArr = [];
+  let i = 1;
+  while (true) {
+    if (!formData.get(`eventAgenda${i}`)) break;
+    agendaArr.push(formData.get(`eventAgenda${i}`));
+    i++;
+  }
+
+  // Getting report into an array
+  const reportArr = [];
+  let j = 1;
+  while (true) {
+    if (!formData.get(`eventReportDate${j}`)) {
+      break;
+    }
+    reportArr.push([
+      formData.get(`eventReportDate${j}`),
+      formData.get(`eventReportDesc${j}`),
+    ]);
+    j++;
+  }
+
+  // Setting the array to agenda and report by converting them into string
+  formData.set('eventAgenda', JSON.stringify(agendaArr));
+  formData.set('eventReport', JSON.stringify(reportArr));
+
+  try {
+    const res = await axios({
+      method: 'POST',
+      url: `/api/v1/events`,
+      data: formData,
+    });
+    console.log(res);
+
+    if (res.status === 200) {
+      btnSubmit.textContent = 'Event Posted Successfully...';
+    }
+  } catch (error) {
+    console.log(error);
+    btnSubmit.textContent = 'Event Validation Failed';
+  }
 });

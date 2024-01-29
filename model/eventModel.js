@@ -16,7 +16,7 @@ const eventSchema = new mongoose.Schema({
   },
   eventVenue: {
     type: String,
-    required: [true, 'An event must have a guest'],
+    required: [true, 'An event must have a venue'],
   },
   eventPoster: {
     type: String,
