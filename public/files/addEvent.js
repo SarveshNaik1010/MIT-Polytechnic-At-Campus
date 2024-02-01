@@ -94,6 +94,6 @@ btnSubmit.addEventListener('click', async function (e) {
     }
   } catch (error) {
     console.log(error);
-    btnSubmit.textContent = 'Event Validation Failed';
+    btnSubmit.textContent = `${error.response.data.error.message}`;
   }
 });
