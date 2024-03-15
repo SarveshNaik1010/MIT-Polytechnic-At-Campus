@@ -17,14 +17,15 @@ head
     p.section-title Add New Event
   .div--add-event
     form.add-event(name='addEventForm')
-      .div--event.div--event-www
+      .div--event.div--event-www 
         .div--section-sub-title
           p.section-sub-title Basic Details
         label Event Name
         input(blabla='' type='text' name='eventName' value='Brainwaves')
         br
         label Event Date
-        input(blabla='' type='date' name='eventDate' value='2024-11-01')
+        input(blabla='' class="event-date" type='date' name='eventDate' value='2024-11-01')
+        p(class="error" id="date") Invalid Date
         br
         label Event Venue
         input(blabla='' type='text' name='eventVenue' value='Anand Hall')

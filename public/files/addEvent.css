@@ -47,7 +47,7 @@ p {
 }
 
 .addEventPage {
-    display: none;
+  display: none;
 }
 
 /* ************************************************* */
@@ -75,6 +75,11 @@ p {
 .div--event input,
 .div--event textarea {
   margin-bottom: 0.6rem;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
 }
 
 .div--event textarea {

@@ -10,6 +10,10 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: [true, 'An event must have a type'],
   },
+  eventGuest: {
+    type: String,
+    required: [true, 'An event must have a guest'],
+  },
   eventDate: {
     type: Date,
     required: [true, 'There must be a date associated with the event'],

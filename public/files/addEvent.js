@@ -5,10 +5,10 @@ const addEventPage = document.querySelector('.addEventPage');
 
 addEventPage.style.display = 'block';
 
-if (password != "SOMEPASSWORD") {
-  alert("Incorrect Password");
-  window.location = window.location;
-}
+// if (password != 'SOMEPASSWORD') {
+//   alert('Incorrect Password');
+//   window.location = window.location;
+// }
 
 // Agenda
 const divAgenda = document.querySelector('.div--add-agenda');
@@ -47,9 +47,22 @@ const uploadForm = document.querySelector('.add-event');
 const btnSubmit = document.querySelector('.submit');
 const inputs = document.getElementsByTagName('input');
 const textArea = document.querySelector('.eventDesc');
+const eventDate = document.querySelector('.event-date');
+const errorDate = document.querySelector('.error');
+
+eventDate.addEventListener('change', function (e) {});
 
 btnSubmit.addEventListener('click', async function (e) {
   e.preventDefault();
+  
+  if (new Date(eventDate.value) > new Date()) {
+    console.log(':sodf');
+    errorDate.style.display = 'block';
+    focus(errorDate);
+    return;
+  } else {
+    errorDate.style.display = 'none';
+  }
 
   btnSubmit.textContent = `Submitting...`;
 

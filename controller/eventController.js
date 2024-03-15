@@ -118,7 +118,7 @@ exports.postEvent = catchAsync(async function (req, res, next) {
 
 exports.deleteEvent = catchAsync(async function (req, res, next) {
   const deletedEvent = await eventModel.deleteOne({
-    eventName: req.params.event,
+    eventName: req.params.eventName,
   });
   res.status(204).json({
     message: 'Deleted',
